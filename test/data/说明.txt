@@ -1,0 +1,9 @@
+groundtruth_SC.txt	保存真实值对应表
+
+外部编译之后，会生成 build/test/data 目录，请将下述文件放到 build/test/data 目录中 （非此data目录）
+	groundtruth_SC.txt
+	所有传感器离线xml数据
+		手动分割，旧xml格式存储的数据（包含自己采集走、跑，以及公开数据集traces）见: http://emhang.8866.org/share/filestores/2013/11/27/c40f68a6673bd63f4a3ee0917c656a81.rar
+		原始数据见：	https://drive.google.com/file/d/0B4vahSr3aGadZ2RReVJQeVFUQUE/edit?usp=sharing
+		
+
