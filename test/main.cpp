@@ -13,8 +13,8 @@ using namespace std;
 
 
 
-void main(){
-	char *fname="./data/ZC30fast_a9_0.xml";
+int main(){
+	const char *fname="./data/ZC30fast_a9_0.xml";
 	//fname="./data/ZC30fast_a9_7.xml";
 	fname="./data/ZCrun120_a5_0.xml";
 	vector<vector<double>> list=getAxyzBF(fname);
@@ -52,8 +52,8 @@ void main(){
 	cout<<"online, getSteps: "<<getDythSteps()<<endl;
 	resetDythCounter();
 	
-	char *dataDir="./data";
-	char *gtFname="./data/groundtruth_SC.txt";
+	const char *dataDir="./data";
+	const char *gtFname="./data/groundtruth_SC.txt";
 	countAndPrint(dataDir, gtFname);
 
 	cout<<"----------dyPeak:"<<endl;
@@ -71,6 +71,7 @@ void main(){
 	resetDyzcCounter();
 
 	countAndPrint(dataDir, gtFname, METHOD_DYZCROSS);
-
+	
+	return 0;
 }//main
 

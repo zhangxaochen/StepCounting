@@ -22,7 +22,7 @@ vector<double> getDataList(const char *fname, const char *key){
 	xml_document doc;
 	xml_parse_result res=doc.load_file(fname);
 	assert(res.status==xml_parse_status::status_ok);
-	xml_node &nNode=doc.child(kRoot).child(kNodes).child(kNode);
+	const xml_node &nNode=doc.child(kRoot).child(kNodes).child(kNode);
 	return getDataList(nNode, key);
 }//getDataList
 
@@ -49,7 +49,7 @@ vector<vector<double> > getAxyzBF(const char *fname){
 	xml_document doc;
 	xml_parse_result res=doc.load_file(fname);
 	assert(res.status==xml_parse_status::status_ok);
-	xml_node &nNode=doc.child(kRoot).child(kNodes).child(kNode);
+	const xml_node &nNode=doc.child(kRoot).child(kNodes).child(kNode);
 	return getAxyzBF(nNode);
 }//getAxyzBF
 
@@ -57,7 +57,7 @@ vector<double> getHammingWin(size_t n){
 	vector<double> res(n);
 	double sum=0;
 	for(size_t i=0; i<n; i++){
-		res[i]=0.54-0.46*cos(2*M_PI*i/(n-1));
+		res[i]=0.54-0.46*cos(2*PI*i/(n-1));
 		sum+=res[i];
 	}
 	for(auto &i:res){

@@ -1,6 +1,7 @@
 #ifndef SCMETHOD_H
 #define SCMETHOD_H
 
+#include <cstddef>
 #include <vector>
 #include <math.h>
 

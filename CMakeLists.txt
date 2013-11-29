@@ -1,6 +1,6 @@
 project(StepCounting)
 cmake_minimum_required(VERSION 2.8.0)
-
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
 
 #set(sc_src_dir ${CMAKE_CURRENT_SOURCE_DIR}/src)
 #set(pugixml_src_dir ${CMAKE_CURRENT_SOURCE_DIR}/3rd/pugixml)
@@ -12,7 +12,10 @@ cmake_minimum_required(VERSION 2.8.0)
 find_package(Boost 1.54.0  COMPONENTS filesystem)
 include_directories(${Boost_INCLUDE_DIRS})
 include_directories(include)
+
 set(sc_lib_name StepCounting_API)
+set(shared_sc_lib_name lib${sc_lib_name})
+
 set(sc_test_name StepCounting_TEST)
 add_subdirectory(src)
 add_subdirectory(test)

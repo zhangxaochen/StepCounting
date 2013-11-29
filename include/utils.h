@@ -3,6 +3,7 @@
 #define _SCL_SECURE_NO_WARNINGS
 
 #include "scMethods.h"
+#include <cstddef>
 #include <vector>
 #include <string>
 #include <map>
@@ -33,6 +34,7 @@ using namespace pugi;
 
 typedef map<string, int>gtmap_type;
 
+const double PI = 2*acos(0.0);
 
 //python 里得到的， 取 -numtaps=10, cutoff=40, nyq=800
 const double ham10[]={0.01509692, 0.03662365, 0.09209563, 0.15669359, 0.19949021, 0.19949021, 0.15669359, 0.09209563, 0.03662365, 0.01509692};
