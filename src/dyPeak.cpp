@@ -27,6 +27,28 @@ static cbuf_type cbuf_v_lpf(CAPACITY);
 static const cbuf_type *cbufPtr=NULL;
 static vector<double> *hamWin;
 
+template<typename T>
+size_t getStepByPmean(const T &buf, size_t begin, size_t end, double pmean, size_t startp){
+	size_t sc=0;
+	for(size_t i=begin; i<end; i++){
+		if(i==0 || i==end-1)
+			continue;
+		double v=buf[i];
+		double forwardSlope=buf[i+1]-v;
+		double backwardSlope=v-buf[i-1];
+		if(forwardSlope<0 && backwardSlope>0 &&
+			v>coeff*pmean && v>baseTh)
+		{
+			if(startp+i-lastZcrossIdx>fps/4){
+				//cout<<"startp: "<<startp<<"\t"<<startp+i<<endl;
+				sc++;
+				lastZcrossIdx=startp+i;
+			}
+		}
+	}
+	return sc;
+}//getStepByPmean
+
 
 size_t dyPeakOnline(double value, double ts, bool doLpf){
 	/*cout<<"i: "<<i<<endl;*/

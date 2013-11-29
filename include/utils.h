@@ -68,9 +68,9 @@ const char *const kRoot="CaptureSession",
 vector<double> getDataList(const xml_node &nNode, const char *key);
 vector<double> getDataList(const char *fname, const char *key);
 
-vector<vector<double>> getAxyzBF(const xml_node &nNode);
+vector<vector<double> > getAxyzBF(const xml_node &nNode);
 
-vector<vector<double>> getAxyzBF(const char *fname);
+vector<vector<double> > getAxyzBF(const char *fname);
 
 template<typename T>
 vector<double> getDataLpf(const vector<T> &data, const vector<double> &hamWin){
@@ -129,7 +129,7 @@ double getDataLpf2(const T &data, const vector<double> &hamWin){
 template<typename T>
 double getVarp(const vector<T> &src, size_t begin, size_t end){
 	assert(begin>=0 && end>0);
-	accumulator_set<T, stats<tag::lazy_variance>> acc_var;
+	accumulator_set<T, stats<tag::lazy_variance> > acc_var;
 	for(size_t i=begin; i<end; i++){
 		acc_var(src[i]);
 	}
@@ -149,7 +149,7 @@ double getVarp(const vector<T> &src){
 template<typename T, size_t N>
 double getVarp(const T (&src)[N],  size_t begin, size_t end){
 	assert(begin>=0 && end>0);
-	accumulator_set<T, stats<tag::lazy_variance>> acc_var;
+	accumulator_set<T, stats<tag::lazy_variance> > acc_var;
 	for(size_t i=begin; i<end; i++){
 		acc_var(src[i]);
 	}

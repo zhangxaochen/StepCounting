@@ -9,7 +9,7 @@ cmake_minimum_required(VERSION 2.8.0)
 #set(src_list sc_src_dir/*.cpp pugixml_src_dir/*.cpp cbuf_src_dir/*.cpp)
 #include_directories(sc_src_dir pugixml_src_dir cbuf_src_dir)
 
-find_package(Boost 1.54.0 REQUIRED filesystem)
+find_package(Boost 1.54.0  COMPONENTS filesystem)
 include_directories(${Boost_INCLUDE_DIRS})
 include_directories(include)
 set(sc_lib_name StepCounting_API)

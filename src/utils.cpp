@@ -26,8 +26,8 @@ vector<double> getDataList(const char *fname, const char *key){
 	return getDataList(nNode, key);
 }//getDataList
 
-vector<vector<double>> getAxyzBF(const xml_node &nNode){
-	vector<vector<double>> res;
+vector<vector<double> > getAxyzBF(const xml_node &nNode){
+	vector<vector<double> > res;
 	res.resize(2);
 
 	for(auto &dnode: nNode.children()){
@@ -45,7 +45,7 @@ vector<vector<double>> getAxyzBF(const xml_node &nNode){
 	return res;
 }//getAxyzBF
 
-vector<vector<double>> getAxyzBF(const char *fname){
+vector<vector<double> > getAxyzBF(const char *fname){
 	xml_document doc;
 	xml_parse_result res=doc.load_file(fname);
 	assert(res.status==xml_parse_status::status_ok);
@@ -110,7 +110,7 @@ void countAndPrint(const char *dataDir, const char* gtFname, int whichMethod){
 	vector<double> gts;
 	for(auto fname:fnames){
 		string path=string(dataDir)+"/"+fname.string();
-		vector<vector<double>> alist=getAxyzBF(path.c_str());
+		vector<vector<double> > alist=getAxyzBF(path.c_str());
 		vector<double> tslist=alist[0],
 			axyzlist=alist[1];
 		for(size_t i=0; i<tslist.size(); i++){
